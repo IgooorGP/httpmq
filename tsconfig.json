@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "outDir": "build",
+    "baseUrl": ".",
+    "rootDir": "src",
+    "sourceMap": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "strictNullChecks": true,
+    "paths": {
+      "~/*": ["./*"]
+    }
+  }
+}

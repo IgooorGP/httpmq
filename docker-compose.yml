@@ -1,0 +1,15 @@
+version: "3.8"
+
+x-build:
+  &dockerfile-local-build
+  context: .
+  dockerfile: Dockerfile.local
+
+services:
+  app:
+    container_name: application
+    ports:
+      - "8080:8080"
+    build: *dockerfile-local-build
+    volumes:
+      - .:/app

@@ -1,0 +1,48 @@
+{
+  "parser": "espree",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": ["prettier", "jest", "import"],
+  "env": {
+    "node": true,
+    "es2021": true,
+    "jest": true,
+    "jasmine": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:jest/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "prettier"
+  ],
+  "rules": {
+    "jest/no-disabled-tests": "off",
+    "jest/no-commented-out-tests": "off",
+    "jest/no-try-expect": "off",
+    "no-unused-vars": [
+      "warn",
+      {
+        "args": "none",
+        "ignoreRestSiblings": true,
+        "caughtErrors": "none"
+      }
+    ],
+    "prettier/prettier": ["error"],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "newlines-between": "never",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "pathGroups": [],
+        "pathGroupsExcludedImportTypes": []
+      }
+    ]
+  }
+}
