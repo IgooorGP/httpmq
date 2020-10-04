@@ -7,13 +7,14 @@
   "author": "IgooorGP <igor.feq@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "start": "node -r tsconfig-paths/register build/app.js",
-    "build-start": "tsc && node -r tsconfig-paths/register build/app.js",
-    "dev": "ts-node-dev -r tsconfig-paths/register src/app.ts"
+    "build": "ttsc",
+    "start": "node build/src/app.js",
+    "build-start": "npm run build && npm run start",
+    "dev": "ts-node-dev -r tsconfig-paths/register -r dotenv/config src/app.ts dotenv_config_path=./.local.env"
   },
   "devDependencies": {
     "@types/express": "^4.17.8",
+    "@zerollup/ts-transform-paths": "^1.7.18",
     "dotenv": "^8.2.0",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.11.0",
@@ -25,6 +26,7 @@
     "ts-node": "^9.0.0",
     "ts-node-dev": "^1.0.0-pre.63",
     "tsconfig-paths": "^3.9.0",
+    "ttypescript": "^1.5.12",
     "typescript": "^4.0.3"
   },
   "dependencies": {

@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "module": "commonjs",
+    "target": "ES6",
+    "module": "commonJS",
     "outDir": "build",
     "baseUrl": ".",
-    "rootDir": "src",
+    "rootDir": ".",
     "sourceMap": true,
+    "esModuleInterop": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
@@ -14,6 +15,19 @@
     "strictNullChecks": true,
     "paths": {
       "~/*": ["./*"]
-    }
-  }
+    },
+    "plugins": [
+      {
+        "transform": "@zerollup/ts-transform-paths",
+        "exclude": ["*"]
+      }
+    ]
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*"
+  ]
 }
