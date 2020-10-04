@@ -1,8 +1,8 @@
 /**
- * File with the logger class used by the application.
+ * Module with the logger constant used by the whole application.
  */
 import winston from "winston";
-import { LOGGING_LEVEL } from "~/src/startup/settings";
+import { LOGGING_LEVEL } from "~/src/config/settings";
 
 const winstonLogFormat = winston.format.combine(
   winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),

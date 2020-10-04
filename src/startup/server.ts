@@ -1,7 +1,7 @@
 import express, { Application } from "express";
 import morgan from "morgan";
-import { logger } from "~/src/logger";
-import * as settings from "~/src/startup/settings";
+import { logger } from "~/src/infra/logger";
+import * as settings from "~/src/config/settings";
 import { helloRouterV1 } from "~/src/api/v1/controllers/hello";
 
 /**

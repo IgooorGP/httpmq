@@ -1,7 +1,7 @@
 /**
  * General settings require to set the application up.
  */
-import { readEnvironment, readEnvironmentAsInt, readEnvironmentOrException } from "~/src/startup/env";
+import { readEnvironment, readEnvironmentAsInt, readEnvironmentOrException } from "~/src/config/env";
 import morganJson from "morgan-json";
 
 const APP_SERVER_BIND_PORT: number = readEnvironmentAsInt("APP_SERVER_BIND_PORT");

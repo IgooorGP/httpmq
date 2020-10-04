@@ -1,7 +1,7 @@
 /**
  * Application utilities.
  */
-import { EnvIsNotBooleanException, EnvIsNotIntException, EnvNotFoundException } from "~/src/exceptions";
+import { EnvIsNotBooleanException, EnvIsNotIntException, EnvNotFoundException } from "~/src/config/exceptions";
 
 /**
  * Reads an env variable or throws an exception if its value was not found.
