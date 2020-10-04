@@ -4,5 +4,4 @@
 # files and folders that are allowed on the final img
 !package.json
 !package-lock.json
-!.babelrc
 !src
