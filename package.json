@@ -1,7 +1,7 @@
 {
   "name": "httpmq",
   "version": "1.0.0",
-  "description": "Messaging over plain and simple HTTP requests",
+  "description": "A simple message broker that works with plain and simple HTTP requests️",
   "main": "app.js",
   "repository": "git@github.com:IgooorGP/httpmq.git",
   "author": "IgooorGP <igor.feq@gmail.com>",

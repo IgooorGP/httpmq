@@ -1,3 +1,3 @@
-# restmq
+# httpMQ
 
-A simple message broker based on REST endpoints.
+✉️ A simple message broker that works with plain and simple HTTP requests ✉️
