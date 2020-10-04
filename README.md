@@ -1,3 +1,3 @@
 # httpMQ
 
-✉️ A simple message broker that works with plain and simple HTTP requests ✉️
+✉️ A message broker that works with plain and simple HTTP requests ✉️
