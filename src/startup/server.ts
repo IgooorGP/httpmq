@@ -5,9 +5,9 @@ import * as settings from "~/src/config/settings";
 import { helloRouterV1 } from "~/src/api/v1/controllers/hello";
 
 /**
- * Setups routes, middlewares and other configurations required for the application server.
+ * Setups routes, middlewares and other configurations required for the app server.
  *
- * @param {Application} app - express server application instance
+ * @param {Application} app - express server app instance
  */
 function setupServer(app: Application) {
   app.use(morgan(settings.MORGAN_ACCESS_FORMAT));
@@ -17,7 +17,7 @@ function setupServer(app: Application) {
 /**
  * Creates and setups a new express server instance.
  *
- * @returns {Application} - a new server instance to run the application
+ * @returns {Application} - a new server instance to run the app
  */
 function createServer(): Application {
   const server = express();

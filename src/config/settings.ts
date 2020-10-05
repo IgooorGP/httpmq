@@ -1,5 +1,5 @@
 /**
- * General settings require to set the application up.
+ * General settings require to set the app up.
  */
 import { readEnvironment, readEnvironmentAsInt, readEnvironmentOrException } from "~/src/config/env";
 import morganJson from "morgan-json";

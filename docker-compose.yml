@@ -7,7 +7,7 @@ x-build:
 
 services:
   app:
-    container_name: application
+    container_name: app
     ports:
       - "8080:8080"
     build: *dockerfile-local-build

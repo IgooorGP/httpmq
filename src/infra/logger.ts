@@ -1,5 +1,5 @@
 /**
- * Module with the logger constant used by the whole application.
+ * Module with the logger constant used by the whole app.
  */
 import winston from "winston";
 import { LOGGING_LEVEL } from "~/src/config/settings";
