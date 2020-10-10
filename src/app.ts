@@ -2,9 +2,10 @@
  * Main entrypoint of the app: creates, configures and starts the server of the app.
  */
 import { createServer, startServer } from "~/src/startup/server";
+import "reflect-metadata";
 
-function main() {
-  const server = createServer();
+async function main() {
+  const server = await createServer();
 
   startServer(server);
 }

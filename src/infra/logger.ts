@@ -2,7 +2,7 @@
  * Module with the logger constant used by the whole app.
  */
 import winston from "winston";
-import { LOGGING_LEVEL } from "~/src/config/settings";
+import { APP_LOGGING_LEVEL } from "~/src/config/settings";
 
 const winstonLogFormat = winston.format.combine(
   winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
@@ -12,5 +12,5 @@ const winstonLogFormat = winston.format.combine(
 
 export const logger = winston.createLogger({
   format: winstonLogFormat,
-  transports: [new winston.transports.Console({ level: LOGGING_LEVEL })],
+  transports: [new winston.transports.Console({ level: APP_LOGGING_LEVEL })],
 });

@@ -6,6 +6,14 @@ x-build:
   dockerfile: Dockerfile.local
 
 services:
+  db:
+    image: postgres:10.1-alpine
+    ports:
+    - "5432:5432"
+    environment:
+      - POSTGRES_USER=httpmq_user
+      - POSTGRES_PASSWORD=httpmq_password
+      - POSTGRES_DB=httpmq_db
   app:
     container_name: app
     ports:

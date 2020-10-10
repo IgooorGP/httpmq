@@ -3,11 +3,12 @@
  */
 import { readEnvironment, readEnvironmentAsInt, readEnvironmentOrException } from "~/src/config/env";
 import morganJson from "morgan-json";
+import { ConnectionOptions } from "typeorm";
 
 const APP_SERVER_BIND_PORT: number = readEnvironmentAsInt("APP_SERVER_BIND_PORT");
 const APP_SERVER_BIND_HOST: string = readEnvironmentOrException("APP_SERVER_BIND_HOST");
 const NODE_ENV: string = readEnvironment("NODE_ENV", "development");
-const LOGGING_LEVEL: string = readEnvironment("APP_LOGGING_LEVEL", "info");
+const APP_LOGGING_LEVEL: string = readEnvironment("APP_LOGGING_LEVEL", "info");
 const MORGAN_ACCESS_FORMAT: any = morganJson({
   "http-version": ":http-version",
   "remote-addr": ":remote-addr",
@@ -21,4 +22,13 @@ const MORGAN_ACCESS_FORMAT: any = morganJson({
   "datetime": ":date[iso]",
 });
 
-export { APP_SERVER_BIND_HOST, APP_SERVER_BIND_PORT, NODE_ENV, LOGGING_LEVEL, MORGAN_ACCESS_FORMAT };
+const DATABASE: ConnectionOptions = {
+  type: readEnvironmentOrException("DATABASE_ENGINE") as any, // must be "postgres" | "mysql" | ...
+  host: readEnvironmentOrException("DATABASE_HOST"),
+  port: readEnvironmentAsInt("DATABASE_PORT"),
+  database: readEnvironmentOrException("DATABASE_NAME"),
+  username: readEnvironmentOrException("DATABASE_USER"),
+  password: readEnvironmentOrException("DATABASE_PASSWORD"),
+};
+
+export { APP_SERVER_BIND_HOST, APP_SERVER_BIND_PORT, NODE_ENV, APP_LOGGING_LEVEL, MORGAN_ACCESS_FORMAT, DATABASE };
