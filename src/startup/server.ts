@@ -1,9 +1,9 @@
 import express, { Application } from "express";
 import morgan from "morgan";
 import { logger } from "~/src/infra/logger";
-import * as settings from "~/src/config/settings";
 import { helloRouterV1 } from "~/src/api/v1/controllers/hello";
 import { createConnection } from "typeorm";
+import * as settings from "~/src/config/settings";
 
 /**
  * Setups routes, middlewares and other configurations required for the app server.
@@ -14,7 +14,7 @@ async function setupServer(app: Application) {
   logger.debug("[STARTUP]: Configuring Morgan's access log...");
   app.use(morgan(settings.MORGAN_ACCESS_FORMAT));
 
-  logger.debug("[STARTUP]: Starting database connection...");
+  logger.debug("[STARTUP]: Starting database connection with env variables...");
   const connPromise = createConnection(settings.DATABASE);
 
   logger.debug("[STARTUP]: Configuring routes...");

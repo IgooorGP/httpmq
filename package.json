@@ -8,9 +8,12 @@
   "license": "MIT",
   "scripts": {
     "build": "ttsc",
-    "start": "node build/src/app.js",
+    "start": "typeorm migration:run && node build/src/app.js",
     "build-start": "npm run build && npm run start",
-    "dev": "ts-node-dev -r tsconfig-paths/register -r dotenv/config src/app.ts dotenv_config_path=./.local.env",
+    "dev": "npm run typeorm:migrate && DOTENV_CONFIG_PATH=.local.env ts-node -r tsconfig-paths/register -r dotenv/config src/app.ts",
+    "typeorm": "DOTENV_CONFIG_PATH=.local.env node -r ts-node/register -r tsconfig-paths/register -r dotenv/config ./node_modules/typeorm/cli.js",
+    "typeorm:migrate": "npm run typeorm -- migration:run",
+    "typeorm:makemigrations": "npm run typeorm -- migration:generate",
     "test": "jest"
   },
   "devDependencies": {
