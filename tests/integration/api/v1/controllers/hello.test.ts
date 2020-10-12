@@ -1,11 +1,26 @@
 import request from "supertest";
 import { createServer } from "~/src/startup/server";
+import databaseConnection from "~/tests/setup";
 
 describe("Greetings resource suite", () => {
+  let server;
+
+  beforeAll(async () => {
+    server = await createServer();
+    await databaseConnection.create();
+  });
+
+  afterAll(async () => {
+    await databaseConnection.close();
+  });
+
+  beforeEach(async () => {
+    await databaseConnection.clear();
+  });
+
   test("should make a GET request to say hello to igp", async () => {
     // arrange
     const endpoint = "/api/v1/greetings/hello";
-    const server = createServer();
 
     // act
     const result = await request(server).get(endpoint).query({ name: "igp" });
@@ -18,7 +33,6 @@ describe("Greetings resource suite", () => {
   test("should make a GET request to say bye to world", async () => {
     // arrange
     const endpoint = "/api/v1/greetings/bye"; // no name qry string -> defaults to world
-    const server = createServer();
 
     // act
     const result = await request(server).get(endpoint);
