@@ -1,9 +1,9 @@
 /**
  * Module with the entity entity.
  */
-import { Column, ManyToOne, Entity } from "typeorm";
-import { BaseEntity } from "~/src/domain/entity/base";
-import { Queue } from "~/src/domain/entity/queue";
+import { Column, Entity, ManyToOne } from "typeorm";
+import { BaseEntity } from "~/src/domain/models/base";
+import { Queue } from "~/src/domain/models/queue";
 
 @Entity()
 export class Message extends BaseEntity {

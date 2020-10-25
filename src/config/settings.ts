@@ -1,14 +1,14 @@
 /**
  * General settings require to set the app up.
  */
+import morganJson from "morgan-json";
+import { ConnectionOptions } from "typeorm";
 import {
   readEnvironment,
   readEnvironmentAsBoolean,
   readEnvironmentAsInt,
-  readEnvironmentOrException,
+  readEnvironmentOrException
 } from "~/src/config/env";
-import morganJson from "morgan-json";
-import { ConnectionOptions } from "typeorm";
 
 const APP_SERVER_BIND_PORT: number = readEnvironmentAsInt("APP_SERVER_BIND_PORT");
 const APP_SERVER_BIND_HOST: string = readEnvironmentOrException("APP_SERVER_BIND_HOST");
