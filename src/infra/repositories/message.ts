@@ -1,5 +1,5 @@
 import { EntityManager, EntityRepository, Repository, Transaction, TransactionManager } from "typeorm";
-import { Message } from "~/src/domain/models/message";
+import { Message } from "~/src/core/domain/models/message";
 
 @EntityRepository()
 export class MessageRepository extends Repository<Message> {

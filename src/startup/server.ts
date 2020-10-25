@@ -1,8 +1,11 @@
+import bodyParser from "body-parser";
 import express, { Application } from "express";
 import { Server } from "http";
 import morgan from "morgan";
 import { createConnection } from "typeorm";
+import { errorHandlerMiddleware } from "~/src/api/middlewares/error-handler";
 import { helloRouterV1 } from "~/src/api/v1/controllers/hello";
+import { messagingRouterV1 } from "~/src/api/v1/controllers/message";
 import * as settings from "~/src/config/settings";
 import { logger } from "~/src/infra/logger";
 
@@ -15,11 +18,20 @@ async function setupServer(app: Application) {
   logger.debug("[STARTUP]: Configuring Morgan's access log...");
   app.use(morgan(settings.MORGAN_ACCESS_FORMAT));
 
+  logger.debug("[STARTUP]: Configuring body parser for jsons only...");
+  app.use(bodyParser.json());
+
   logger.debug("[STARTUP]: Starting database connection with env variables...");
   await createConnection(settings.DATABASE);
 
   logger.debug("[STARTUP]: Configuring routes...");
   app.use("/api/v1/greetings", helloRouterV1);
+  app.use("/api/v1/", messagingRouterV1);
+
+  logger.debug("[STARTUP]: Setting up some middlewares...");
+  app.use(errorHandlerMiddleware);
+
+  logger.debug("[STARTUP]: The server's all set up and is ready serve requests...");
 }
 
 /**

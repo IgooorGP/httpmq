@@ -2,8 +2,8 @@
  * Module with the entity entity.
  */
 import { Column, Entity, OneToMany } from "typeorm";
-import { BaseEntity } from "~/src/domain/models/base";
-import { Queue } from "~/src/domain/models/queue";
+import { BaseEntity } from "~/src/core/domain/models/base";
+import { Queue } from "~/src/core/domain/models/queue";
 
 @Entity()
 export class Topic extends BaseEntity {
