@@ -1,9 +1,11 @@
+import { Application } from "express";
 import request from "supertest";
 import { createServer } from "~/src/startup/server";
-import databaseConnection from "~/tests/setup";
+import databaseConnection from "~/tests/support/db-connection";
+
 
 describe("Greetings resource suite", () => {
-  let server;
+  let server : Application;
 
   beforeAll(async () => {
     server = await createServer();

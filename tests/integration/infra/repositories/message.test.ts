@@ -1,10 +1,12 @@
-import { Message } from "~/src/domain/entity/message";
-import { Queue } from "~/src/domain/entity/queue";
+import { Connection } from "typeorm";
 import * as uuid from "uuid";
-import databaseConnection from "~/tests/setup";
+import { Message } from "~/src/domain/models/message";
+import { Queue } from "~/src/domain/models/queue";
+import databaseConnection from "~/tests/support/db-connection";
+
 
 describe("Messaging repositories test suite", () => {
-  let dbConnection;
+  let dbConnection : Connection;
 
   beforeAll(async () => {
     dbConnection = await databaseConnection.create();
@@ -21,8 +23,8 @@ describe("Messaging repositories test suite", () => {
   test("should create a new message and queue using repositories", async () => {
     // arrange
     const messageRepository = dbConnection.getRepository(Message);
-    const queueRepository = dbConnection.getRepository(Queue);
-
+    const queueRepository = dbConnection.getRepository(Queue);    
+    
     const q = new Queue();
     const msg = new Message();
 
