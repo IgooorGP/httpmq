@@ -1,5 +1,5 @@
 import { createConnection, getConnection } from "typeorm";
-import * as uuid from 'uuid';
+import * as uuid from "uuid";
 import { DATABASE } from "~/src/config/settings";
 
 const databaseConnection = {
@@ -19,7 +19,10 @@ const databaseConnection = {
 
   async clear() {
     const connection = getConnection(this.uniqueConnectionName);
-    await connection.synchronize(true); // drops the db
+    // all tables except the migration table
+    await connection.query("TRUNCATE TABLE message CASCADE");
+    await connection.query("TRUNCATE TABLE queue CASCADE");
+    await connection.query("TRUNCATE TABLE topic CASCADE");
   },
 };
 
