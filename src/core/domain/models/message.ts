@@ -13,6 +13,9 @@ export class Message extends BaseEntity {
   @Column("json")
   message: object;
 
+  @Column({ default: false })
+  acked: boolean;
+
   @ManyToOne(() => Queue, (queue) => queue.messages)
   queue: Queue;
 }
