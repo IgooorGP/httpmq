@@ -25,11 +25,9 @@ describe("Messaging repositories test suite", () => {
     const queueRepository = dbConnection.getRepository(Queue);
 
     const q = new Queue();
-    const msg = new Message();
-
     q.name = `test_queue_${uuid.v4()}`;
-    msg.headers = { "content-type": "text" };
-    msg.message = { message: "hello world!" };
+
+    const msg = new Message({ "content-type": "text" }, { message: "hello world!" }, q);
 
     // act
     await messageRepository.save(msg);

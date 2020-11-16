@@ -23,7 +23,7 @@ describe("Messaging integration tests suite", () => {
     // arrange
     const endpoint = "/api/v1/message";
     const badRequest = {
-      message: "Hello, world!", // no headers
+      message: { message: "Hello, world!" }, // no headers
     };
 
     // act

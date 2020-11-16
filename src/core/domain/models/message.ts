@@ -7,6 +7,14 @@ import { Queue } from "~/src/core/domain/models/queue";
 
 @Entity()
 export class Message extends BaseEntity {
+  constructor(headers: object, message: object, queue: Queue, acked: boolean = false) {
+    super();
+    this.headers = headers;
+    this.message = message;
+    this.queue = queue;
+    this.acked = acked;
+  }
+
   @Column("json")
   headers: object;
 
